@@ -2,7 +2,7 @@
 .PHONY: build liveshell test
 
 # Name of this project
-PROJECT_NAME := trydocker
+PROJECT_NAME := juandavidvega/gol
 
 build:
 	docker build -t $(PROJECT_NAME):latest -f ./Dockerfile .
@@ -13,5 +13,5 @@ liveshell: build
 test: build
 	docker run -it --rm $(PROJECT_NAME):latest mvn test
 
-log:
-	git log --decorate --stat --oneline --reverse
+run: build
+	docker run -it --rm $(PROJECT_NAME):latest mvn exec:java -Dexec.mainClass="es.juandavidvega.gol.Main"
