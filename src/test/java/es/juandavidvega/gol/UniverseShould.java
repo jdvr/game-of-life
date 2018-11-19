@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+import es.juandavidvega.gol.cell.AliveCell;
+import es.juandavidvega.gol.cell.Cell;
+import es.juandavidvega.gol.cell.DeadCell;
+
 public class UniverseShould {
 
     @Test public void

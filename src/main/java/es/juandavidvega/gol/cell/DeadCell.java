@@ -1,5 +1,6 @@
-package es.juandavidvega.gol;
+package es.juandavidvega.gol.cell;
 
+import es.juandavidvega.gol.neighborhoods.Neighborhood;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode

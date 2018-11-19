@@ -3,14 +3,20 @@ package es.juandavidvega.gol;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import es.juandavidvega.gol.cell.AliveCell;
+import es.juandavidvega.gol.cell.Cell;
+import es.juandavidvega.gol.neighborhoods.UnhealthyNeighborhood;
+import es.juandavidvega.gol.neighborhoods.Neighborhood;
+import es.juandavidvega.gol.neighborhoods.HealthyNeighborhood;
+import es.juandavidvega.gol.neighborhoods.WithoutEffectsNeighborhood;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode
 public class Universe {
 
     private static final Map<Integer, Neighborhood> neighborhoods = Map.of(
-            2, new TwoNeighbours(),
-            3, new ThreeNeighbours()
+            2, new WithoutEffectsNeighborhood(),
+            3, new HealthyNeighborhood()
     );
 
     private final Cell[][] grid;
@@ -53,7 +59,7 @@ public class Universe {
                 is_cell_alive_at(x, y - 1),
                 is_cell_alive_at(x, y + 1)
         ).filter(c -> c).count());
-        return neighborhoods.getOrDefault(numberOfNeighbours, new LessThanTwoNeighbours());
+        return neighborhoods.getOrDefault(numberOfNeighbours, new UnhealthyNeighborhood());
     }
 
     private Boolean is_cell_alive_at(int x, int y) {
