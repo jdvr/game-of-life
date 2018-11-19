@@ -1,6 +1,8 @@
 package es.juandavidvega.gol;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import es.juandavidvega.gol.cell.AliveCell;
@@ -38,14 +40,9 @@ public class Universe {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (var i = 0; i < grid.length; i++) {
-            for (var j = 0; j < grid[i].length; j++) {
-                builder.append(grid[i][j].toString());
-            }
-            builder.append('\n');
-        }
-        return builder.toString();
+        return Arrays.stream(grid).map(row ->
+            Arrays.stream(row).map(Object::toString).collect(Collectors.joining())
+        ).collect(Collectors.joining("\n")) + "\n";
     }
 
     private Neighborhood neighborhood(int x, int y) {
