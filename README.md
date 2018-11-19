@@ -1,6 +1,6 @@
 # Game of life
 
-After [gdcr18](coderetreat.org) my friend Rúben created [a repository](https://github.com/rubendm92/game-of-life) to implement the [Game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) without using conditionals.
+After [gdcr18](coderetreat.org) my friend Rubén created [a repository](https://github.com/rubendm92/game-of-life) to implement the [Game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) without using conditionals.
 
 As he explained in his the [README.md](https://github.com/rubendm92/game-of-life/blob/master/README.md):
 
